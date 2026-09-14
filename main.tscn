@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://b4oubfchae8u3" path="res://button.gd" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://b887liajawdbd" path="res://selection_display.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://c6ivjyychswy1" path="res://hold_buttons.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://bqeq4umvggscm" path="res://operator_master.gd" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://b3wlauc3rrnsy" path="res://operator_buttons.gd" id="6_272bh"]
 
 [sub_resource type="Theme" id="Theme_gcccc"]
 
@@ -15,16 +17,18 @@ script = ExtResource("1_ig7tw")
 [node name="1" type="Button" parent="Selection buttons" unique_id=1671941215]
 offset_left = 455.0
 offset_top = 129.0
-offset_right = 720.0
-offset_bottom = 296.0
+offset_right = 564.0
+offset_bottom = 234.0
 theme = SubResource("Theme_gcccc")
 text = "test
 :3c"
 script = ExtResource("2_0xm2m")
 
 [node name="2" type="Button" parent="Selection buttons" unique_id=27427628]
-offset_right = 246.0
-offset_bottom = 263.0
+offset_left = 465.0
+offset_top = 244.0
+offset_right = 569.0
+offset_bottom = 387.0
 script = ExtResource("2_0xm2m")
 
 [node name="selection display" type="Label" parent="Selection buttons" unique_id=1037266872]
@@ -40,12 +44,47 @@ script = ExtResource("3_h2yge")
 [node name="Holds" type="Node2D" parent="." unique_id=1015355122]
 
 [node name="1" type="Button" parent="Holds" unique_id=335104819]
-offset_left = 779.0
-offset_top = 61.0
-offset_right = 1058.0
-offset_bottom = 238.0
+offset_left = 874.0
+offset_top = 4.0
+offset_right = 1153.0
+offset_bottom = 181.0
 script = ExtResource("4_1bvp3")
+
+[node name="operators" type="Node2D" parent="." unique_id=1547888061]
+script = ExtResource("5_7mycd")
+
+[node name="+" type="Button" parent="operators" unique_id=2043326525]
+offset_left = 9.0
+offset_top = 60.0
+offset_right = 314.0
+offset_bottom = 151.0
+script = ExtResource("6_272bh")
+
+[node name="-" type="Button" parent="operators" unique_id=1884925867]
+offset_left = 9.0
+offset_top = 162.0
+offset_right = 314.0
+offset_bottom = 253.0
+script = ExtResource("6_272bh")
+
+[node name="*" type="Button" parent="operators" unique_id=1504823148]
+offset_left = 5.0
+offset_top = 257.0
+offset_right = 310.0
+offset_bottom = 348.0
+script = ExtResource("6_272bh")
+
+[node name="<div>" type="Button" parent="operators" unique_id=1050109414]
+offset_left = 4.0
+offset_top = 351.0
+offset_right = 309.0
+offset_bottom = 442.0
+script = ExtResource("6_272bh")
 
 [connection signal="pressed" from="Selection buttons/1" to="Selection buttons/1" method="_on_pressed"]
 [connection signal="pressed" from="Selection buttons/2" to="Selection buttons/2" method="_on_pressed"]
 [connection signal="gui_input" from="Holds/1" to="Holds/1" method="_on_gui_input"]
+[connection signal="pressed" from="operators/+" to="operators/+" method="_on_pressed"]
+[connection signal="pressed" from="operators/-" to="operators/-" method="_on_pressed"]
+[connection signal="pressed" from="operators/*" to="operators/*" method="_on_pressed"]
+[connection signal="pressed" from="operators/<div>" to="operators/<div>" method="_on_pressed"]

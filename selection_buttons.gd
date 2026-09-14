@@ -22,7 +22,3 @@ func generate(count: int) -> Array:
 		result.append(RandomNumberGenerator.new().randi_range(-128, 127))
 		count -= 1
 	return result
-
-
-func _on__pressed() -> void:
-	pass # Replace with function body.
