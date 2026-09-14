@@ -2,26 +2,50 @@
 
 [ext_resource type="Script" uid="uid://kmwwysm3sqwa" path="res://selection_buttons.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://b4oubfchae8u3" path="res://button.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://b887liajawdbd" path="res://selection_display.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://c6ivjyychswy1" path="res://hold_buttons.gd" id="4_1bvp3"]
 
 [sub_resource type="Theme" id="Theme_gcccc"]
 
-[node name="Main" type="Node2D" unique_id=315304865]
+[node name="Node" type="Node" unique_id=245356760]
+
+[node name="Selection buttons" type="Node2D" parent="." unique_id=315304865]
 script = ExtResource("1_ig7tw")
 
-[node name="1" type="Button" parent="." unique_id=1671941215]
-offset_left = 312.0
-offset_top = 60.0
-offset_right = 577.0
-offset_bottom = 227.0
+[node name="1" type="Button" parent="Selection buttons" unique_id=1671941215]
+offset_left = 455.0
+offset_top = 129.0
+offset_right = 720.0
+offset_bottom = 296.0
 theme = SubResource("Theme_gcccc")
 text = "test
 :3c"
 script = ExtResource("2_0xm2m")
 
-[node name="2" type="Button" parent="." unique_id=27427628]
+[node name="2" type="Button" parent="Selection buttons" unique_id=27427628]
 offset_right = 246.0
 offset_bottom = 263.0
 script = ExtResource("2_0xm2m")
 
-[connection signal="pressed" from="1" to="1" method="_on_pressed"]
-[connection signal="pressed" from="2" to="2" method="_on_pressed"]
+[node name="selection display" type="Label" parent="Selection buttons" unique_id=1037266872]
+anchors_preset = -1
+anchor_right = 0.66300005
+anchor_bottom = 0.549
+offset_left = 306.0
+offset_top = 112.0
+offset_right = 307.0
+offset_bottom = 135.0
+script = ExtResource("3_h2yge")
+
+[node name="Holds" type="Node2D" parent="." unique_id=1015355122]
+
+[node name="1" type="Button" parent="Holds" unique_id=335104819]
+offset_left = 779.0
+offset_top = 61.0
+offset_right = 1058.0
+offset_bottom = 238.0
+script = ExtResource("4_1bvp3")
+
+[connection signal="pressed" from="Selection buttons/1" to="Selection buttons/1" method="_on_pressed"]
+[connection signal="pressed" from="Selection buttons/2" to="Selection buttons/2" method="_on_pressed"]
+[connection signal="gui_input" from="Holds/1" to="Holds/1" method="_on_gui_input"]
