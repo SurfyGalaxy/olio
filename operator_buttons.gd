@@ -20,3 +20,4 @@ func _process(_delta: float) -> void:
 
 func _on_pressed() -> void:
 	$"../".selected = name
+	print((name + " selected"))
