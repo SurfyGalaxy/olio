@@ -1,15 +1,20 @@
 [gd_scene format=3 uid="uid://v6e5f88rcloc"]
 
+[ext_resource type="Script" uid="uid://dtmnd6ny4bqsh" path="res://main.gd" id="1_4c57u"]
 [ext_resource type="Script" uid="uid://kmwwysm3sqwa" path="res://selection_buttons.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://b4oubfchae8u3" path="res://button.gd" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://b887liajawdbd" path="res://selection_display.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://c6ivjyychswy1" path="res://hold_buttons.gd" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://bqeq4umvggscm" path="res://operator_master.gd" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://b3wlauc3rrnsy" path="res://operator_buttons.gd" id="6_272bh"]
+[ext_resource type="Script" uid="uid://cq1tqb7g82e52" path="res://parser.gd" id="7_5vw27"]
+[ext_resource type="Script" uid="uid://uwa10hael2c8" path="res://equation.gd" id="8_4c57u"]
+[ext_resource type="Script" uid="uid://bn2cekh52m3wc" path="res://label.gd" id="8_kek77"]
 
 [sub_resource type="Theme" id="Theme_gcccc"]
 
 [node name="Node" type="Node" unique_id=245356760]
+script = ExtResource("1_4c57u")
 
 [node name="Selection buttons" type="Node2D" parent="." unique_id=315304865]
 script = ExtResource("1_ig7tw")
@@ -80,6 +85,34 @@ offset_top = 351.0
 offset_right = 309.0
 offset_bottom = 442.0
 script = ExtResource("6_272bh")
+
+[node name="output" type="Node2D" parent="." unique_id=1229531809]
+script = ExtResource("7_5vw27")
+
+[node name="Score" type="Label" parent="output" unique_id=1613896206]
+offset_left = 532.0
+offset_top = 40.0
+offset_right = 572.0
+offset_bottom = 63.0
+text = "Result:
+"
+
+[node name="Submit" type="Button" parent="output" unique_id=1343039712]
+offset_left = 675.0
+offset_top = 293.0
+offset_right = 887.0
+offset_bottom = 506.0
+text = "Submit"
+
+[node name="equation" type="Node2D" parent="." unique_id=1788879542]
+script = ExtResource("8_4c57u")
+
+[node name="Label" type="Label" parent="equation" unique_id=1216787265]
+offset_left = 373.0
+offset_top = 41.0
+offset_right = 476.0
+offset_bottom = 64.0
+script = ExtResource("8_kek77")
 
 [connection signal="pressed" from="Selection buttons/1" to="Selection buttons/1" method="_on_pressed"]
 [connection signal="pressed" from="Selection buttons/2" to="Selection buttons/2" method="_on_pressed"]
