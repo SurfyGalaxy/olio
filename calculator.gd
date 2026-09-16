@@ -1,14 +1,34 @@
 extends Button
 
 var result = ""
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var operator
+var new_value
+var holder
+var timer = 0
+const TIMINGS = { # Time in seconds
+	"+": 2,
+	"-": 2,
+	"*": 1,
+	"<div>": 1
+}
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if new_value != null:
+		holder = new_value
+		new_value = null
+		timer = TIMINGS[operator]
+		print("Starting new timer for " + str(timer) + " seconds")
+		disabled = true
+	if timer > 0:
+		timer -= delta
+		print("Time left: " + str(timer) + "s")
+	if timer <= 0 and holder != null:
+		result = holder
+		holder = null
+		disabled = false
+		print("New result: " + str(result))
 	text = str(result)
 
 
@@ -18,7 +38,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			if str(result) == "":
 				var selection_1 = $"../../Selection buttons".values[0]
 				var selection_2 = $"../../Selection buttons".values[1]
-				var operator = $"../../operators".selected
+				operator = $"../../operators".selected
 				
 				if ((not abs(selection_1)) or
 						(not abs(selection_2) or
@@ -27,21 +47,21 @@ func _on_gui_input(event: InputEvent) -> void:
 					return
 				else:
 					if operator == "+":
-						result = selection_1 + selection_2
+						new_value = selection_1 + selection_2
 					elif operator == "-":
-						result = selection_1 - selection_2
+						new_value = selection_1 - selection_2
 					elif operator == "*":
-						result = selection_1 * selection_2
+						new_value = selection_1 * selection_2
 					elif operator == "<div>":
-						result = int(selection_1 / selection_2)
-					print(("Evaluated " + str(selection_1) + " " + operator + " " + str(selection_2) + " to " + str(result)))
+						new_value = int(selection_1 / selection_2)
+					print(("Evaluated " + str(selection_1) + " " + operator + " " + str(selection_2) + " to " + str(new_value)))
 					
-					if not ((-128 < result) and (result < 127)):
-						result = result % 256
-						if result >= 128:
-							result -= 256 
+					if not ((-128 < new_value) and (new_value < 127)):
+						new_value = new_value % 256
+						if new_value >= 128:
+							new_value -= 256 
 					
-					print(("Balanced to " + str(result)))
+					print(("Balanced to " + str(new_value)))
 			else:
 				$"../../Selection buttons".selected_value = result
 				print(("Pushed " + str(result) + " to memory"))
