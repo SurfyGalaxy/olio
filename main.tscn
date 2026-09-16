@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://uwa10hael2c8" path="res://equation.gd" id="8_4c57u"]
 [ext_resource type="Script" uid="uid://bn2cekh52m3wc" path="res://label.gd" id="8_kek77"]
 [ext_resource type="Script" uid="uid://btgk28sdxsj1h" path="res://calculator.gd" id="10_4c57u"]
+[ext_resource type="Script" uid="uid://71sd01gw55ci" path="res://input.gd" id="11_efxa6"]
 
 [sub_resource type="Theme" id="Theme_gcccc"]
 
@@ -20,20 +21,31 @@ script = ExtResource("1_4c57u")
 script = ExtResource("1_ig7tw")
 
 [node name="1" type="Button" parent="Selection buttons" unique_id=1671941215]
-offset_left = 113.0
-offset_top = 537.0
-offset_right = 222.0
-offset_bottom = 642.0
+offset_left = 3.0
+offset_top = 545.0
+offset_right = 103.0
+offset_bottom = 645.0
 theme = SubResource("Theme_gcccc")
 text = "1"
 script = ExtResource("2_0xm2m")
 
-[node name="2" type="Button" parent="Selection buttons" unique_id=27427628]
-offset_left = 3.0
-offset_top = 500.0
-offset_right = 107.0
-offset_bottom = 643.0
+[node name="2" type="Button" parent="Selection buttons" unique_id=1385342044]
+offset_left = 107.0
+offset_top = 545.0
+offset_right = 207.0
+offset_bottom = 645.0
+theme = SubResource("Theme_gcccc")
 text = "2"
+script = ExtResource("2_0xm2m")
+
+[node name="3" type="Button" parent="Selection buttons" unique_id=1681290307]
+offset_left = 211.0
+offset_top = 545.0
+offset_right = 311.0
+offset_bottom = 645.0
+theme = SubResource("Theme_gcccc")
+text = "3
+"
 script = ExtResource("2_0xm2m")
 
 [node name="selection display" type="Label" parent="Selection buttons" unique_id=1037266872]
@@ -147,19 +159,24 @@ script = ExtResource("10_4c57u")
 [node name="inputs" type="Node2D" parent="." unique_id=762289638]
 
 [node name="1" type="Button" parent="inputs" unique_id=326904446]
-offset_left = 559.0
-offset_top = 100.0
-offset_right = 749.0
-offset_bottom = 260.0
-
-[node name="2" type="Button" parent="inputs" unique_id=709100599]
 offset_left = 365.0
 offset_top = 100.0
 offset_right = 555.0
 offset_bottom = 260.0
+text = "input 1"
+script = ExtResource("11_efxa6")
+
+[node name="2" type="Button" parent="inputs" unique_id=709100599]
+offset_left = 559.0
+offset_top = 100.0
+offset_right = 749.0
+offset_bottom = 260.0
+text = "input 2"
+script = ExtResource("11_efxa6")
 
 [connection signal="pressed" from="Selection buttons/1" to="Selection buttons/1" method="_on_pressed"]
 [connection signal="pressed" from="Selection buttons/2" to="Selection buttons/2" method="_on_pressed"]
+[connection signal="pressed" from="Selection buttons/3" to="Selection buttons/3" method="_on_pressed"]
 [connection signal="gui_input" from="Holds/1" to="Holds/1" method="_on_gui_input"]
 [connection signal="gui_input" from="Holds/2" to="Holds/2" method="_on_gui_input"]
 [connection signal="gui_input" from="Holds/3" to="Holds/3" method="_on_gui_input"]
@@ -170,3 +187,5 @@ offset_bottom = 260.0
 [connection signal="pressed" from="operators/<div>" to="operators/<div>" method="_on_pressed"]
 [connection signal="gui_input" from="calculator/calculation" to="calculator/calculation" method="_on_gui_input"]
 [connection signal="pressed" from="calculator/calculation" to="calculator/calculation" method="_on_pressed"]
+[connection signal="pressed" from="inputs/1" to="inputs/1" method="_on_pressed"]
+[connection signal="pressed" from="inputs/2" to="inputs/2" method="_on_pressed"]

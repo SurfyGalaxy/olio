@@ -5,8 +5,10 @@ var value
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	text = str(value)
-
+	if value != null:
+		text = str(value)
+	else:
+		text = ""
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:

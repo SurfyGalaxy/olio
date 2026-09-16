@@ -12,3 +12,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	equation = $equation.equation
 	
+
+
+func _on__pressed() -> void:
+	pass # Replace with function body.
