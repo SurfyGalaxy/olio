@@ -12,4 +12,5 @@ func _process(_delta: float) -> void:
 	for term in $"../".equation:
 		temp = temp + str(term) + " "
 	
-	text = temp.strip_edges()
+	#text = temp.strip_edges()
+	text = str($"../".answer)

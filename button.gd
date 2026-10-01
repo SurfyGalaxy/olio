@@ -12,4 +12,5 @@ func _process(_delta: float) -> void:
 
 
 func _on_pressed() -> void:
+	print("New Selection: " + name)
 	get_parent().target = name

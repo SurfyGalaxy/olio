@@ -73,6 +73,7 @@ func _on_gui_input(event: InputEvent) -> void:
 					
 					print(("Balanced to " + str(new_value)))
 			else:
+				print(result)
 				$"../../Selection buttons".selected_value = result
 				print(("Pushed " + str(result) + " to memory"))
 				result = ""

@@ -6,22 +6,13 @@ var selected_value
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	values =generate(3)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	var temp = $"../".equation
-	if temp:
-		for value in temp:
-			if value not in ["+", "-", "*", "<div>"]:
-				values.append(value)
-	else:
-		values = []
-	
-	if target:
+	if target != null:
 		selected_value = values[int(target) - 1]
 		target = null
+		print(selected_value)
 
 func generate(count: int) -> Array:
 	var result = []
