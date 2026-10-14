@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dtmnd6ny4bqsh" path="res://main.gd" id="1_4c57u"]
 [ext_resource type="Script" uid="uid://kmwwysm3sqwa" path="res://selection_buttons.gd" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://b4oubfchae8u3" path="res://button.gd" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://b887liajawdbd" path="res://selection_display.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://c6ivjyychswy1" path="res://hold_buttons.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://5ah0p75xjn17" path="res://generator.gd" id="4_dg77c"]
 [ext_resource type="Script" uid="uid://bqeq4umvggscm" path="res://operator_master.gd" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://b3wlauc3rrnsy" path="res://operator_buttons.gd" id="6_272bh"]
-[ext_resource type="Script" uid="uid://uwa10hael2c8" path="res://equation.gd" id="8_4c57u"]
-[ext_resource type="Script" uid="uid://bn2cekh52m3wc" path="res://label.gd" id="8_kek77"]
 [ext_resource type="Script" uid="uid://btgk28sdxsj1h" path="res://calculator.gd" id="10_4c57u"]
 [ext_resource type="Script" uid="uid://71sd01gw55ci" path="res://input.gd" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://b2gr0785a7ba3" path="res://answer.gd" id="12_ycdy4"]
+[ext_resource type="Script" uid="uid://cynyb1px5gl0y" path="res://gui.gd" id="13_w48qg"]
 
 [sub_resource type="Theme" id="Theme_gcccc"]
 
@@ -27,7 +27,7 @@ offset_right = 103.0
 offset_bottom = 645.0
 theme = SubResource("Theme_gcccc")
 text = "1"
-script = ExtResource("2_0xm2m")
+script = ExtResource("4_dg77c")
 
 [node name="2" type="Button" parent="Selection buttons" unique_id=1385342044]
 offset_left = 107.0
@@ -36,17 +36,16 @@ offset_right = 207.0
 offset_bottom = 645.0
 theme = SubResource("Theme_gcccc")
 text = "2"
-script = ExtResource("2_0xm2m")
+script = ExtResource("4_dg77c")
 
-[node name="3" type="Button" parent="Selection buttons" unique_id=1681290307]
+[node name="A" type="Button" parent="Selection buttons" unique_id=917587835]
 offset_left = 211.0
 offset_top = 545.0
 offset_right = 311.0
 offset_bottom = 645.0
-theme = SubResource("Theme_gcccc")
-text = "3
+text = "A
 "
-script = ExtResource("2_0xm2m")
+script = ExtResource("4_dg77c")
 
 [node name="selection display" type="Label" parent="Selection buttons" unique_id=1037266872]
 anchors_preset = -1
@@ -133,19 +132,6 @@ offset_bottom = 510.0
 text = "<div>"
 script = ExtResource("6_272bh")
 
-[node name="equation" type="Node2D" parent="." unique_id=1788879542]
-script = ExtResource("8_4c57u")
-
-[node name="Label" type="Label" parent="equation" unique_id=1216787265]
-offset_left = -7.0
-offset_top = -3.0
-offset_right = 1123.0
-offset_bottom = 54.0
-text = "Equation"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("8_kek77")
-
 [node name="calculator" type="Node2D" parent="." unique_id=1391671639]
 
 [node name="calculation" type="Button" parent="calculator" unique_id=2096647446]
@@ -174,9 +160,27 @@ offset_bottom = 260.0
 text = "input 2"
 script = ExtResource("11_efxa6")
 
+[node name="answer" type="Node2D" parent="." unique_id=1608147810]
+
+[node name="answer" type="Button" parent="answer" unique_id=659230256]
+offset_left = 365.0
+offset_top = 514.0
+offset_right = 749.0
+offset_bottom = 644.0
+text = "Submit"
+script = ExtResource("12_ycdy4")
+
+[node name="gui" type="Node2D" parent="." unique_id=193082721]
+script = ExtResource("13_w48qg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=607542108]
+offset_left = 215.0
+offset_top = 541.0
+offset_right = 219.0
+offset_bottom = 545.0
+
 [connection signal="pressed" from="Selection buttons/1" to="Selection buttons/1" method="_on_pressed"]
 [connection signal="pressed" from="Selection buttons/2" to="Selection buttons/2" method="_on_pressed"]
-[connection signal="pressed" from="Selection buttons/3" to="Selection buttons/3" method="_on_pressed"]
 [connection signal="gui_input" from="Holds/1" to="Holds/1" method="_on_gui_input"]
 [connection signal="gui_input" from="Holds/2" to="Holds/2" method="_on_gui_input"]
 [connection signal="gui_input" from="Holds/3" to="Holds/3" method="_on_gui_input"]
@@ -189,3 +193,4 @@ script = ExtResource("11_efxa6")
 [connection signal="pressed" from="calculator/calculation" to="calculator/calculation" method="_on_pressed"]
 [connection signal="pressed" from="inputs/1" to="inputs/1" method="_on_pressed"]
 [connection signal="pressed" from="inputs/2" to="inputs/2" method="_on_pressed"]
+[connection signal="pressed" from="answer/answer" to="answer/answer" method="_on_pressed"]

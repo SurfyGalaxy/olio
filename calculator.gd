@@ -5,12 +5,12 @@ var operator
 var new_value
 var holder
 var timer = 0
-const TIMINGS = { # Time in seconds
-	"+": 2,
-	"-": 2,
-	"*": 1,
-	"<div>": 1,
-	"ERR": 4
+const TIMINGS = { # Time in cycles
+	"+": 1,
+	"-": 1,
+	"*": 2,
+	"<div>": 25,
+	"ERR": 40
 }
 
 
@@ -23,10 +23,10 @@ func _process(delta: float) -> void:
 			timer = TIMINGS["ERR"]
 		else:
 			timer = TIMINGS[operator]
-		print("Starting new timer for " + str(timer) + " seconds")
+		print("Starting new timer for " + str(timer) + " cycles")
 		disabled = true
 	if timer > 0:
-		timer -= delta
+		timer -= delta * $"../../".speed
 		print("Time left: " + str(timer) + "s")
 	if timer <= 0 and holder != null:
 		if str(holder) != "ERR":
@@ -41,8 +41,8 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if str(result) == "":
-				var selection_1 = $"../../inputs/1".value
-				var selection_2 = $"../../inputs/2".value
+				var selection_1 = int($"../../inputs/1".value)
+				var selection_2 = int($"../../inputs/2".value)
 				operator = $"../../operators".selected
 				
 				if (

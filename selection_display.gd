@@ -6,6 +6,6 @@ var selection
 func _process(_delta: float) -> void:
 	selection = get_parent().selected_value
 	if selection != null:
-		text = "Selection: \n %d" % selection
+		text = "Selection: \n %d" % int(selection)
 	else:
 		text = "Selection: \n None"
