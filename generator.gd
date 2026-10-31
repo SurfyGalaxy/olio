@@ -1,8 +1,8 @@
 extends Button
-
+signal game_over
 func generate():
 	if name == "A6" or int(name) >= 11:
-		text = "1"#str(randi_range(-228, 127))
+		text = str(randi_range(-228, 127))
 		while text == "0":
 			text = str(randi_range(-228, 127))
 
@@ -11,8 +11,9 @@ func _ready() -> void:
 		disabled = true
 	_on_answer_correct_answer()
 
-func _process(_delta: float) -> void:
-
+var timer = 0
+func _process(delta: float) -> void:
+	print($"../Timer".wait_time)
 	if text == "" and (name != "A6" or int(name) >= 11):
 		
 		if str(name)[0] != "A":
@@ -25,6 +26,7 @@ func _process(_delta: float) -> void:
 			if name != "A6":
 				text = get_node("../" + str(next_above)).text
 				get_node("../" + str(next_above)).text = ""
+	timer += delta
 
 func _on_pressed() -> void:
 	print("New Selection: " + name)
@@ -32,6 +34,12 @@ func _on_pressed() -> void:
 
 func _on_answer_correct_answer() -> void:
 	generate()
-	print(name)
 	if name == "A1" or int(name) <= 2:
 		text = ""
+
+func _on_timer_timeout() -> void:
+	if text != "":
+		print("Game Over")
+		game_over.emit()
+		return
+	generate()

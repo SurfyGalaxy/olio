@@ -22,3 +22,7 @@ func _on__pressed() -> void:
 
 func _on_answer_correct_answer() -> void:
 	pass # Replace with function body.
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.

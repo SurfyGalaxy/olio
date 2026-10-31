@@ -1,6 +1,6 @@
 extends Button
 
-var timer = 0
+var clock = 0
 
 signal correct_answer
 
@@ -11,8 +11,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if timer > 0:
-		timer -= delta * $"../../".speed
+	if clock > 0:
+		clock -= delta * $"../../".speed
 	elif text != "Submit":
 		text = "Submit"
 		disabled = false
@@ -23,11 +23,22 @@ func _on_pressed() -> void:
 	if int(selected) == int($"../../Selection buttons/A1".text):
 		text = "Correct"
 		disabled = true
-		timer = 2
+		clock = 2
+		gooooo()
 		$"../../gui".score += 1
 		correct_answer.emit()
 		
 	else:
 		text = "Incorrect"
 		disabled = true
-		timer = 3
+		clock = 3
+		
+func gooooo():
+	var timer = $"../../Selection buttons/Timer"
+	var new_wait = max(1, timer.wait_time - 1)
+	if timer.is_stopped():
+		timer.wait_time = new_wait
+	else:
+		var left = max(1, timer.time_left - 1)
+		timer.start(left)      
+		timer.wait_time = new_wait 

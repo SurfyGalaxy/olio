@@ -175,6 +175,10 @@ text = "A
 "
 script = ExtResource("4_dg77c")
 
+[node name="Timer" type="Timer" parent="Selection buttons" unique_id=1467544355]
+wait_time = 60.0
+autostart = true
+
 [node name="Holds" type="Node2D" parent="." unique_id=1015355122]
 
 [node name="1" type="Button" parent="Holds" unique_id=335104819]
@@ -306,6 +310,10 @@ offset_bottom = 337.0
 [connection signal="pressed" from="Selection buttons/8" to="Selection buttons/8" method="_on_pressed"]
 [connection signal="pressed" from="Selection buttons/11" to="Selection buttons/11" method="_on_pressed"]
 [connection signal="pressed" from="Selection buttons/12" to="Selection buttons/12" method="_on_pressed"]
+[connection signal="game_over" from="Selection buttons/A6" to="gui" method="_on_a_6_game_over"]
+[connection signal="timeout" from="Selection buttons/Timer" to="Selection buttons/11" method="_on_timer_timeout"]
+[connection signal="timeout" from="Selection buttons/Timer" to="Selection buttons/12" method="_on_timer_timeout"]
+[connection signal="timeout" from="Selection buttons/Timer" to="Selection buttons/A6" method="_on_timer_timeout"]
 [connection signal="gui_input" from="Holds/1" to="Holds/1" method="_on_gui_input"]
 [connection signal="gui_input" from="Holds/2" to="Holds/2" method="_on_gui_input"]
 [connection signal="gui_input" from="Holds/3" to="Holds/3" method="_on_gui_input"]
