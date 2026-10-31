@@ -55,7 +55,7 @@ The uses are as follows:
 | `uname -r` | Finding the version of your distribution |
 | `lscpu \| grep "Model name"` | Finding the CPU in use on your machine |
 
-As of this release, there is no way to disable the use of these queries via Olio
+As of this release, there is no way to disable the use of these queries via Olio.
 
 ## Credits
 - Font: DejaVu Sans Mono, copyright Bitstream, Inc. (Bitstream Vera license), see `LICENSE-font.txt`
