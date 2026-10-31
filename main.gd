@@ -18,3 +18,7 @@ func _process(_delta: float) -> void:
 
 func _on__pressed() -> void:
 	pass # Replace with function body.
+
+
+func _on_answer_correct_answer() -> void:
+	pass # Replace with function body.

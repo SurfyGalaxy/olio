@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 		print("Starting new timer for " + str(timer) + " cycles")
 		disabled = true
 	if timer > 0:
-		timer -= delta * $"../../".speed
+		timer -= delta * $"../../gui/".speed
 		print("Time left: " + str(timer) + "s")
 	if timer <= 0 and holder != null:
 		if str(holder) != "ERR":
@@ -41,8 +41,9 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if str(result) == "":
-				var selection_1 = int($"../../inputs/1".value)
-				var selection_2 = int($"../../inputs/2".value)
+				print(typeof($"../../inputs/1".value))
+				var selection_1 = $"../../inputs/1".value
+				var selection_2 = $"../../inputs/2".value
 				operator = $"../../operators".selected
 				
 				if (
@@ -52,6 +53,8 @@ func _on_gui_input(event: InputEvent) -> void:
 					print("Tried to calculate with empty value")
 					return
 				else:
+					selection_1 = int(selection_1)
+					selection_2 = int(selection_2)
 					if operator == "+":
 						new_value = selection_1 + selection_2
 					elif operator == "-":

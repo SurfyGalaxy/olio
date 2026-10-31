@@ -20,13 +20,35 @@ script = ExtResource("1_4c57u")
 [node name="Selection buttons" type="Node2D" parent="." unique_id=315304865]
 script = ExtResource("1_ig7tw")
 
+[node name="9" type="Button" parent="Selection buttons" unique_id=1582032814]
+offset_left = 4.0
+offset_top = 129.0
+offset_right = 104.0
+offset_bottom = 229.0
+theme = SubResource("Theme_gcccc")
+script = ExtResource("4_dg77c")
+
+[node name="10" type="Button" parent="Selection buttons" unique_id=384161003]
+offset_left = 108.0
+offset_top = 129.0
+offset_right = 208.0
+offset_bottom = 229.0
+theme = SubResource("Theme_gcccc")
+script = ExtResource("4_dg77c")
+
+[node name="A5" type="Button" parent="Selection buttons" unique_id=1008382258]
+offset_left = 212.0
+offset_top = 129.0
+offset_right = 312.0
+offset_bottom = 229.0
+script = ExtResource("4_dg77c")
+
 [node name="1" type="Button" parent="Selection buttons" unique_id=1671941215]
 offset_left = 3.0
 offset_top = 545.0
 offset_right = 103.0
 offset_bottom = 645.0
 theme = SubResource("Theme_gcccc")
-text = "1"
 script = ExtResource("4_dg77c")
 
 [node name="2" type="Button" parent="Selection buttons" unique_id=1385342044]
@@ -35,16 +57,13 @@ offset_top = 545.0
 offset_right = 207.0
 offset_bottom = 645.0
 theme = SubResource("Theme_gcccc")
-text = "2"
 script = ExtResource("4_dg77c")
 
-[node name="A" type="Button" parent="Selection buttons" unique_id=917587835]
+[node name="A1" type="Button" parent="Selection buttons" unique_id=917587835]
 offset_left = 211.0
 offset_top = 545.0
 offset_right = 311.0
 offset_bottom = 645.0
-text = "A
-"
 script = ExtResource("4_dg77c")
 
 [node name="selection display" type="Label" parent="Selection buttons" unique_id=1037266872]
@@ -59,6 +78,102 @@ text = "Selection"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_h2yge")
+
+[node name="3" type="Button" parent="Selection buttons" unique_id=2128425182]
+offset_left = 4.0
+offset_top = 441.0
+offset_right = 104.0
+offset_bottom = 541.0
+theme = SubResource("Theme_gcccc")
+script = ExtResource("4_dg77c")
+
+[node name="4" type="Button" parent="Selection buttons" unique_id=471942140]
+offset_left = 108.0
+offset_top = 441.0
+offset_right = 208.0
+offset_bottom = 541.0
+theme = SubResource("Theme_gcccc")
+script = ExtResource("4_dg77c")
+
+[node name="A2" type="Button" parent="Selection buttons" unique_id=1371364891]
+offset_left = 212.0
+offset_top = 441.0
+offset_right = 312.0
+offset_bottom = 541.0
+script = ExtResource("4_dg77c")
+
+[node name="5" type="Button" parent="Selection buttons" unique_id=1951345997]
+offset_left = 4.0
+offset_top = 337.0
+offset_right = 104.0
+offset_bottom = 437.0
+theme = SubResource("Theme_gcccc")
+script = ExtResource("4_dg77c")
+
+[node name="6" type="Button" parent="Selection buttons" unique_id=2086484660]
+offset_left = 108.0
+offset_top = 337.0
+offset_right = 208.0
+offset_bottom = 437.0
+theme = SubResource("Theme_gcccc")
+script = ExtResource("4_dg77c")
+
+[node name="A3" type="Button" parent="Selection buttons" unique_id=607158037]
+offset_left = 212.0
+offset_top = 337.0
+offset_right = 312.0
+offset_bottom = 437.0
+script = ExtResource("4_dg77c")
+
+[node name="7" type="Button" parent="Selection buttons" unique_id=1544954116]
+offset_left = 4.0
+offset_top = 233.0
+offset_right = 104.0
+offset_bottom = 333.0
+theme = SubResource("Theme_gcccc")
+script = ExtResource("4_dg77c")
+
+[node name="8" type="Button" parent="Selection buttons" unique_id=1170612118]
+offset_left = 108.0
+offset_top = 233.0
+offset_right = 208.0
+offset_bottom = 333.0
+theme = SubResource("Theme_gcccc")
+script = ExtResource("4_dg77c")
+
+[node name="A4" type="Button" parent="Selection buttons" unique_id=142271630]
+offset_left = 212.0
+offset_top = 233.0
+offset_right = 312.0
+offset_bottom = 333.0
+script = ExtResource("4_dg77c")
+
+[node name="11" type="Button" parent="Selection buttons" unique_id=69752095]
+offset_left = 4.0
+offset_top = 25.0
+offset_right = 104.0
+offset_bottom = 125.0
+theme = SubResource("Theme_gcccc")
+text = "1"
+script = ExtResource("4_dg77c")
+
+[node name="12" type="Button" parent="Selection buttons" unique_id=563717487]
+offset_left = 108.0
+offset_top = 25.0
+offset_right = 208.0
+offset_bottom = 125.0
+theme = SubResource("Theme_gcccc")
+text = "2"
+script = ExtResource("4_dg77c")
+
+[node name="A6" type="Button" parent="Selection buttons" unique_id=1182656682]
+offset_left = 212.0
+offset_top = 25.0
+offset_right = 312.0
+offset_bottom = 125.0
+text = "A
+"
+script = ExtResource("4_dg77c")
 
 [node name="Holds" type="Node2D" parent="." unique_id=1015355122]
 
@@ -174,13 +289,23 @@ script = ExtResource("12_ycdy4")
 script = ExtResource("13_w48qg")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=607542108]
-offset_left = 215.0
-offset_top = 541.0
-offset_right = 219.0
-offset_bottom = 545.0
+offset_left = 220.0
+offset_top = 333.0
+offset_right = 224.0
+offset_bottom = 337.0
 
+[connection signal="pressed" from="Selection buttons/9" to="Selection buttons/9" method="_on_pressed"]
+[connection signal="pressed" from="Selection buttons/10" to="Selection buttons/10" method="_on_pressed"]
 [connection signal="pressed" from="Selection buttons/1" to="Selection buttons/1" method="_on_pressed"]
 [connection signal="pressed" from="Selection buttons/2" to="Selection buttons/2" method="_on_pressed"]
+[connection signal="pressed" from="Selection buttons/3" to="Selection buttons/3" method="_on_pressed"]
+[connection signal="pressed" from="Selection buttons/4" to="Selection buttons/4" method="_on_pressed"]
+[connection signal="pressed" from="Selection buttons/5" to="Selection buttons/5" method="_on_pressed"]
+[connection signal="pressed" from="Selection buttons/6" to="Selection buttons/6" method="_on_pressed"]
+[connection signal="pressed" from="Selection buttons/7" to="Selection buttons/7" method="_on_pressed"]
+[connection signal="pressed" from="Selection buttons/8" to="Selection buttons/8" method="_on_pressed"]
+[connection signal="pressed" from="Selection buttons/11" to="Selection buttons/11" method="_on_pressed"]
+[connection signal="pressed" from="Selection buttons/12" to="Selection buttons/12" method="_on_pressed"]
 [connection signal="gui_input" from="Holds/1" to="Holds/1" method="_on_gui_input"]
 [connection signal="gui_input" from="Holds/2" to="Holds/2" method="_on_gui_input"]
 [connection signal="gui_input" from="Holds/3" to="Holds/3" method="_on_gui_input"]
@@ -193,4 +318,10 @@ offset_bottom = 545.0
 [connection signal="pressed" from="calculator/calculation" to="calculator/calculation" method="_on_pressed"]
 [connection signal="pressed" from="inputs/1" to="inputs/1" method="_on_pressed"]
 [connection signal="pressed" from="inputs/2" to="inputs/2" method="_on_pressed"]
+[connection signal="correct_answer" from="answer/answer" to="Selection buttons/1" method="_on_answer_correct_answer"]
+[connection signal="correct_answer" from="answer/answer" to="Selection buttons/2" method="_on_answer_correct_answer"]
+[connection signal="correct_answer" from="answer/answer" to="Selection buttons/A1" method="_on_answer_correct_answer"]
+[connection signal="correct_answer" from="answer/answer" to="Selection buttons/11" method="_on_answer_correct_answer"]
+[connection signal="correct_answer" from="answer/answer" to="Selection buttons/12" method="_on_answer_correct_answer"]
+[connection signal="correct_answer" from="answer/answer" to="Selection buttons/A6" method="_on_answer_correct_answer"]
 [connection signal="pressed" from="answer/answer" to="answer/answer" method="_on_pressed"]

@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 
 func _on_pressed() -> void:
 	var selected = $"../../Selection buttons".selected_value
-	if selected == int($"../../Selection buttons/A".text):
+	if int(selected) == int($"../../Selection buttons/A1".text):
 		text = "Correct"
 		disabled = true
 		timer = 2
