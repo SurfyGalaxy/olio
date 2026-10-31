@@ -32,6 +32,8 @@ To do arithmetic, put two numbers in both of the middle top squares, select an o
 
 After a short delay, the calculated number will appear in that same space, where you can select it like normal.
 
+To change the number, left click on the register (you will not get the value back)<!--ig `mv RAX RDX` is too hard-->
+
 ### Caches
 The four rectangles on the right<!--trans rights are human rights, but that's not what this one means--> side of the screen are caches.
 
@@ -60,4 +62,4 @@ As of this release, there is no way to disable the use of these queries via Olio
 ## Credits
 - Font: DejaVu Sans Mono, copyright Bitstream, Inc. (Bitstream Vera license), see `LICENSE-font.txt`
 
-Made with <3 by Ashley, Ashton <!--oh hey a shoutout-->and Lily<!--:3 (The cutest one - Ashton)--> for Hack Club Stardance <!--released while technically Stardance was over but eh timezones-->
+Made with <3<!--and autism--> by Ashley, Ashton <!--oh hey a shoutout-->and Lily<!--:3 (The cutest one - Ashton)--> for Hack Club Stardance <!--released while technically Stardance was over but eh timezones-->

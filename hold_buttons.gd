@@ -16,7 +16,6 @@ func _on_gui_input(event: InputEvent) -> void:
 			if value == null and $"../../Selection buttons".selected_value != null:
 				value = str($"../../Selection buttons".selected_value)
 			elif value != null:
-				print(value)
 				$"../../Selection buttons".selected_value = int(value)
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			value = null

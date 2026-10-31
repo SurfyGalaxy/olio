@@ -9,7 +9,7 @@ const TIMINGS = { # Time in cycles
 	"+": 1,
 	"-": 1,
 	"*": 2,
-	"<div>": 25,
+	"/": 25,
 	"ERR": 40
 }
 
@@ -61,7 +61,7 @@ func _on_gui_input(event: InputEvent) -> void:
 						new_value = selection_1 - selection_2
 					elif operator == "*":
 						new_value = selection_1 * selection_2
-					elif operator == "<div>":
+					elif operator == "/":
 						if selection_2 != 0:
 							new_value = int(selection_1 / selection_2)
 						else:

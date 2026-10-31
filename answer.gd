@@ -36,6 +36,8 @@ func _on_pressed() -> void:
 func gooooo():
 	var timer = $"../../Selection buttons/Timer"
 	var new_wait = max(1, timer.wait_time - 1)
+	if new_wait < 20:
+		return
 	if timer.is_stopped():
 		timer.wait_time = new_wait
 	else:

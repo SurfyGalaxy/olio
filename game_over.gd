@@ -44,8 +44,7 @@ var template = [
 	["line", "  [   4102]  1000  4102  2097152  1523004        9437184             0 java"],
 	["line", "  [   4890]  1000  4890     5871     1190          73728             0 bash"],
 	["line", "  ... 999+ more processes truncated due to memory exhaustion ..."],
-	["line", "---[ end Kernel panic - not syncing: Out of memory and panic_on_oom is set ]---"],
-	["end", "CRITICAL: CPU execution halted. Press [R] to Reboot System."]
+	["end", "---[ end Kernel panic - not syncing: Out of memory and panic_on_oom is set ]---"],
 ]
 var random = RandomNumberGenerator.new()
 var text = ""
@@ -98,7 +97,7 @@ func time_format(second: float) -> String:
 
 
 func _ready() -> void:
-	OS.execute("sh", ["-c", "ps -e -o comm,pid | shuf | head -n 1"], process)
+	OS.execute("sh", ["-c", "ps -e -o comm=,pid= | shuf | head -n 1"], process)
 	process = process[0].strip_edges().split(" ")
 	temp = []
 	for processes in process:
@@ -131,7 +130,9 @@ func _ready() -> void:
 		$"RichTextLabel".text = ($"RichTextLabel".text + data).strip_edges(true, false)
 	
 	await get_tree().create_timer(random.randf_range(0.005, 0.01)).timeout
-	$"RichTextLabel".text = ($"RichTextLabel".text + "\n\n[" + uptime_format(Gui.uptime) + "] " + "[INFO] You lasted " + time_format(Gui.timer) + ", and solved " + str(Gui.score) + " problems.")
+	$"RichTextLabel".text = ($"RichTextLabel".text + 
+	"\n\n[" + uptime_format(Gui.uptime) + "] [INFO] You lasted " + time_format(Gui.timer) + ", and solved " + str(Gui.score) + " problems." + "\n" + 
+	"\n\n[" + uptime_format(Gui.uptime) + "] [INFO] Press [R] to Reboot System.")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

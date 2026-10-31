@@ -13,7 +13,6 @@ func _ready() -> void:
 
 var timer = 0
 func _process(delta: float) -> void:
-	print($"../Timer".wait_time)
 	if text == "" and (name != "A6" or int(name) >= 11):
 		
 		if str(name)[0] != "A":
