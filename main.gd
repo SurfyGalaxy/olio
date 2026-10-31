@@ -6,7 +6,8 @@ var speed = 10 # Clock speed in hz
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	Gui.playing = true
+	Gui.timer = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

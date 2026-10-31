@@ -117,6 +117,13 @@ func _ready() -> void:
 	kernel = kernel[0].strip_edges()
 	OS.execute("sh", ["-c", "lscpu | grep 'Model name'"], hardware)
 	hardware = hardware[0].substr(12).strip_edges()
+	
+	if process == []:
+		process = ["Systemd", "1"]
+	if kernel == []:
+		kernel = "7.0.0-38-generic"
+	if hardware == []:
+		hardware = "13th Gen Intel(R) Core(TM) i5-13420H"
 
 	for line in template:
 		var data = parse(line)

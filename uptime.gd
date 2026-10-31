@@ -12,5 +12,5 @@ func time_format(second: float) -> String:
 	return "%02d:%02d" % [minutes, seconds]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	text = "Uptime: " + time_format(Gui.uptime)

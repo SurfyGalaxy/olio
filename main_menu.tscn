@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ornf5ib7vpve" path="res://uptime.gd" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://der84s0qgqnle" path="res://main_menu.gd" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://b1q4cs03uoisn" path="res://label_3.gd" id="3_fu7sn"]
 
 [sub_resource type="FontFile" id="FontFile_yxx3c"]
 cache/0/variation_coordinates = {}
@@ -28,12 +29,12 @@ offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1607318539]
-offset_left = 418.0
-offset_top = 44.0
-offset_right = 741.0
-offset_bottom = 261.0
+offset_left = 442.0
+offset_top = 86.0
+offset_right = 683.0
+offset_bottom = 303.0
 theme_override_font_sizes/font_size = 100
-text = "OlIo"
+text = "0lIo"
 
 [node name="Label2" type="Label" parent="." unique_id=1651061299]
 offset_left = 10.0
@@ -42,3 +43,17 @@ offset_right = 202.0
 offset_bottom = 40.0
 theme_override_fonts/font = SubResource("FontFile_yxx3c")
 script = ExtResource("1_06t4h")
+
+[node name="Label3" type="Label" parent="." unique_id=1602729892]
+offset_left = 339.0
+offset_top = 419.0
+offset_right = 841.0
+offset_bottom = 464.0
+theme_override_font_sizes/font_size = 32
+text = "--- Press [A] to start ---"
+script = ExtResource("3_fu7sn")
+
+[node name="Timer" type="Timer" parent="Label3" unique_id=807329218]
+autostart = true
+
+[connection signal="timeout" from="Label3/Timer" to="Label3" method="_on_timer_timeout"]
