@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bnkx0bst3kga7"]
 
 [ext_resource type="Script" uid="uid://2yeprppocyjv" path="res://game_over.gd" id="1_y26ei"]
+[ext_resource type="FontFile" uid="uid://c1s7fq7vclrou" path="res://DejaVuSansMono.ttf" id="2_yxx3c"]
 
 [node name="Node2D" type="Node2D" unique_id=1006522185]
 script = ExtResource("1_y26ei")
@@ -11,33 +12,9 @@ offset_bottom = 648.0
 color = Color(0.13333334, 0.14509805, 0.16470589, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1624284328]
+offset_top = 20.0
 offset_right = 1148.0
-offset_bottom = 646.0
-text = "A
-a
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-AA
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A"
+offset_bottom = 666.0
+theme_override_fonts/normal_font = ExtResource("2_yxx3c")
+fit_content = true
+scroll_active = false

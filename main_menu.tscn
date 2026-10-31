@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://vk1c4x7pjoug"]
+
+[ext_resource type="Script" uid="uid://ornf5ib7vpve" path="res://uptime.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://der84s0qgqnle" path="res://main_menu.gd" id="1_7vrkn"]
+
+[sub_resource type="FontFile" id="FontFile_yxx3c"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="Node2D" type="Node2D" unique_id=1763549523]
+script = ExtResource("1_7vrkn")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1971479226]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1607318539]
+offset_left = 418.0
+offset_top = 44.0
+offset_right = 741.0
+offset_bottom = 261.0
+theme_override_font_sizes/font_size = 100
+text = "OlIo"
+
+[node name="Label2" type="Label" parent="." unique_id=1651061299]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 202.0
+offset_bottom = 40.0
+theme_override_fonts/font = SubResource("FontFile_yxx3c")
+script = ExtResource("1_06t4h")

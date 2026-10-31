@@ -20,6 +20,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var timer = 0
 var uptime = 0
+var playing = true
 func _process(delta: float) -> void:
 	uptime += delta
 	if (temperature >= TjMax) and (temperature <= trip):
@@ -29,8 +30,10 @@ func _process(delta: float) -> void:
 		Overheated.emit()
 	else:
 		speed = clock_time
-	timer += delta
+	if playing:
+		timer += delta
 
 
 func _on_a_6_game_over() -> void: # dumb autogen name but it works
 	get_tree().change_scene_to_file("res://game_over.tscn")
+	playing = false

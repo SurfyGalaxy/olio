@@ -176,7 +176,7 @@ text = "A
 script = ExtResource("4_dg77c")
 
 [node name="Timer" type="Timer" parent="Selection buttons" unique_id=1467544355]
-wait_time = 60.0
+wait_time = 0.363
 autostart = true
 
 [node name="Holds" type="Node2D" parent="." unique_id=1015355122]
