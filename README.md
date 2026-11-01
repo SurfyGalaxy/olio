@@ -62,4 +62,4 @@ As of this release, there is no way to disable the use of these queries via Olio
 ## Credits
 - Font: DejaVu Sans Mono, copyright Bitstream, Inc. (Bitstream Vera license), see `LICENSE-font.txt`
 
-Made with <3<!--and autism--> by Ashley, Ashton <!--oh hey a shoutout-->and Lily<!--:3 (The cutest one - Ashton)--> for <a href="embassy.hackclub.com"> Hack Club Embassy </a> <!--intended for stardance but i hate the voting system so it goes here-->
+Made with <3<!--and autism--> by Ashley, Ashton <!--oh hey a shoutout-->and Lily<!--:3 (The cutest one - Ashton)--> for probably a Hack Club YSWS. <!--intended for stardance but i hate the voting system so it goes here-->
