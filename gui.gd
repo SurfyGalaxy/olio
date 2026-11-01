@@ -9,12 +9,20 @@ var trip = 115
 var prochot = 8
 var speed = 30
 var delay = 1 # seconds between problems spawning
+var userhost = "player@OlIo"
+var done = false
 
 signal Overheated
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var user = []
+	var host = []
+	OS.execute("whoami", [], user)
+	OS.execute("hostname", [], host)
+	userhost = user[0].strip_edges() + "@" + host[0].strip_edges()
+	done = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

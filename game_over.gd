@@ -119,10 +119,6 @@ func _ready() -> void:
 	
 	if process == []:
 		process = ["Systemd", "1"]
-	if kernel == []:
-		kernel = "7.0.0-38-generic"
-	if hardware == []:
-		hardware = "13th Gen Intel(R) Core(TM) i5-13420H"
 
 	for line in template:
 		var data = parse(line)
