@@ -2,23 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ornf5ib7vpve" path="res://uptime.gd" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://der84s0qgqnle" path="res://main_menu.gd" id="1_7vrkn"]
-[ext_resource type="Script" uid="uid://b1q4cs03uoisn" path="res://label_3.gd" id="3_fu7sn"]
-
-[sub_resource type="FontFile" id="FontFile_yxx3c"]
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
+[ext_resource type="FontFile" uid="uid://c1s7fq7vclrou" path="res://DejaVuSansMono.ttf" id="2_jix8l"]
 
 [node name="Node2D" type="Node2D" unique_id=1763549523]
 script = ExtResource("1_7vrkn")
@@ -28,32 +12,12 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="." unique_id=1607318539]
-offset_left = 442.0
-offset_top = 86.0
-offset_right = 683.0
-offset_bottom = 303.0
-theme_override_font_sizes/font_size = 100
-text = "0lIo"
-
 [node name="Label2" type="Label" parent="." unique_id=1651061299]
 offset_left = 10.0
-offset_top = 10.0
-offset_right = 202.0
-offset_bottom = 40.0
-theme_override_fonts/font = SubResource("FontFile_yxx3c")
+offset_top = -1.0
+offset_right = 1152.0
+offset_bottom = 649.0
+theme_override_fonts/font = ExtResource("2_jix8l")
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("1_06t4h")
-
-[node name="Label3" type="Label" parent="." unique_id=1602729892]
-offset_left = 339.0
-offset_top = 419.0
-offset_right = 841.0
-offset_bottom = 464.0
-theme_override_font_sizes/font_size = 32
-text = "--- Press [A] to start ---"
-script = ExtResource("3_fu7sn")
-
-[node name="Timer" type="Timer" parent="Label3" unique_id=807329218]
-autostart = true
-
-[connection signal="timeout" from="Label3/Timer" to="Label3" method="_on_timer_timeout"]

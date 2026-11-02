@@ -141,7 +141,7 @@ var template = [
 
 # kernel = "release" (uname -r), "user@host" (whoami + hostname), "gccLd" (gcc --version + ld --version),
 # "cmdline" (/proc/cmdline), "iomem" (/proc/iomem)
-# date = longform (day month date HH:MM:SS UTC year)
+# date = longform (day month date HH:MM:SS UTC 	year)
 
 func uptime_format(uptime: float) -> String:
 	var components = str(uptime)
@@ -164,7 +164,7 @@ func unix_time():
 	]
 	const months = [
 		"January",
-		"Febuary",
+		"February", # Febuary
 		"March", 
 		"April",
 		"May",
@@ -253,7 +253,7 @@ func LINUX_TIME():
 			for part in processed:
 				await get_tree().create_timer(random.randf_range(0.005, 0.01)).timeout
 				text = text + part
-		else:
+		else:	
 			text = text + processed
 		await get_tree().create_timer(random.randf_range(0.001, 0.1)).timeout
 		row += 1

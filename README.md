@@ -45,17 +45,23 @@ Once you have selected the correct value to answer the question, click on the <!
 
 ## Notes (minorly important) <!--bc while MIT protects us, we wanna let u know-->
 
-Olio uses `ps`, `uname` and `lscpu` when forming the out-of-memory panic screen
+Olio uses `ps`, `uname`, `lscpu`, `whoami`, `hostname`, `gcc`, `ld` when forming the out-of-memory panic screen and the boot screen, aswell as reading from `/proc/cmdline` and `/proc/iomem`
 
-No data is modified nor stored beyond that screen.
+No data is modified nor stored beyond the game.
 
 The uses are as follows:
 
-| Command | Use |
+| Command / File | Use |
 | ------- | --- |
 | `ps -e -o comm=,pid= \| shuf \| head -n 1` | Generating the `PID` and `Comm` line |
 | `uname -r` | Finding the version of your distribution |
 | `lscpu \| grep "Model name"` | Finding the CPU in use on your machine |
+| `whoami` | username@hostname generation |
+| `hostname` | user@hostname generation |
+| `gcc --version` | boot sequence |
+| `ld --version` | boot sequence |
+| `/proc/cmdline` | boot sequence |
+| `/proc/iomem` | boot sequence |
 
 As of this release, there is no way to disable the use of these queries via Olio.
 

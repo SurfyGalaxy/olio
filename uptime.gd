@@ -1,9 +1,7 @@
 extends Label
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var selection = 0
+var active = 0
 
 func time_format(second: float) -> String:
 	var minutes: int = int(second / 60)
@@ -11,6 +9,43 @@ func time_format(second: float) -> String:
 
 	return "%02d:%02d" % [minutes, seconds]
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func selected(option):
+	if option == 0: # Play game
+		get_tree().change_scene_to_file("res://main.tscn")
+	elif option == 1: # Options
+		pass
+	elif option == 2: # Quit
+		get_tree().change_scene_to_file("res://quit.tscn")
 func _process(_delta: float) -> void:
-	text = "Uptime: " + time_format(Gui.uptime)
+	const text_header = " _______  ___      ___   _______ 
+|       ||   |    |   | |       |
+|   _   ||   |    |   | |   _   |
+|  | |  ||   |    |   | |  | |  |
+|  |_|  ||   |___ |   | |  |_|  |
+|       ||       ||   | |       |
+|_______||_______||___| |_______|
+
+v1.1.0
+
+
+
+"
+	const selection_options = [
+"> START GAME <
+OPTIONS
+QUIT",
+"START GAME
+> OPTIONS <
+QUIT",
+"START GAME
+OPTIONS
+> QUIT <"]
+	if Input.is_action_just_pressed("up"):
+		selection -= 1
+	if Input.is_action_just_pressed("down"):
+		selection += 1
+	if Input.is_action_just_pressed("select"):
+		selected(active)
+	active = posmod(selection, 3)
+
+	text = text_header + selection_options[active]

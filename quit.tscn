@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ddwd0gjxckgjw"]
+
+[ext_resource type="Script" uid="uid://bvr6k8lqmcw2j" path="res://shutdown.gd" id="1_2xaj3"]
+
+[node name="Node2D" type="Node2D" unique_id=1898871910]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1650678181]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.13333334, 0.14509805, 0.16470589, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1495497269]
+offset_right = 40.0
+offset_bottom = 19.0
+script = ExtResource("1_2xaj3")
