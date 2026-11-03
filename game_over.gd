@@ -1,7 +1,7 @@
 extends Node2D
 
 var template = [
-	["line", ""],
+	["line", "Mochi: :("],
 	["line", "Kernel panic - not syncing: Out of memory and panic_on_oom is set"],
 	["random", 0, 6, "CPU: "],
 	["process", "PID", " PID: "],

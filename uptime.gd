@@ -13,7 +13,7 @@ func selected(option):
 	if option == 0: # Play game
 		get_tree().change_scene_to_file("res://main.tscn")
 	elif option == 1: # Options
-		pass
+		get_tree().change_scene_to_file("res://settings.tscn")
 	elif option == 2: # Quit
 		get_tree().change_scene_to_file("res://quit.tscn")
 func _process(_delta: float) -> void:

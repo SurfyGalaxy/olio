@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bcuueevpju7pb"]
+
+[ext_resource type="Script" uid="uid://kom0jvasce41" path="res://settings.gd" id="1_x2hje"]
+
+[node name="Node2D" type="Node2D" unique_id=1551382073]
+
+[node name="Label" type="Label" parent="." unique_id=1523801321]
+offset_left = 104.0
+offset_top = 60.0
+offset_right = 1085.0
+offset_bottom = 511.0
+text = "text with this:
+
+
+\"Hi!
+
+While you were looking for some settings, we don't actually have settings yet :/
+
+uhhh
+
+we'll send you back to the menu in a jiffy, cya! 
+
+- Us three :3
+
+(dw about the lore implications of this)\""
+script = ExtResource("1_x2hje")
+
+[node name="Label2" type="Label" parent="." unique_id=1714622652]
+offset_top = 629.0
+offset_right = 40.0
+offset_bottom = 648.0
+theme_override_font_sizes/font_size = 7
+text = "How did you get here?"

@@ -10,6 +10,8 @@ var template = [
 	["line", ""],
 	["kernel", "cmdline", "Command line: "],
 	["line", ""],
+	["kernel", "user", "Mochi: hello once again "],
+	["line", ""],
 	["line", "x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'"],
 	["line", "x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'"],
 	["line", "x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'"],
@@ -46,7 +48,7 @@ var template = [
 	["line", "Performance Events: PEBS fmt4+-baseline, AnyThread deprecated, Alder Lake Hybrid events, 32-deep LBR, full-width counters, Intel PMU driver."],
 	["line", "smp: Bringing up secondary CPUs ..."],
 	["line", "x86: Booting SMP configuration:"],
-	["line", ".... node  #0, CPUs:      #1 #2 #3 #4 #5 #6 #7"],
+	["line", ".... node  #0, CPUs:      #-1 #1 #2 #3 #4 #5 #6 #7"],
 	["line", "smp: Brought up 1 node, 8 CPUs"],
 	["line", "smpboot: Max logical packages: 1"],
 	["line", "smpboot: Total of 8 processors activated (57600.00 BogoMIPS)"],
@@ -199,6 +201,8 @@ func parse(line):
 				return line[3] + Gui.userhost
 			elif line[2] == "host":
 				return line[3] + Gui.userhost.split("@")[1]
+			elif line[2] == "user":
+				return line[3] + Gui.userhost.split("@")[0]
 		elif type == "gccLd":
 			var gcc = []
 			var ld = []
