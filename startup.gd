@@ -10,7 +10,7 @@ var template = [
 	["line", ""],
 	["kernel", "cmdline", "Command line: "],
 	["line", ""],
-	["kernel", "user", "Mochi: hello once again "],
+	["kernel", "user@host", "user" , "Mochi: hello once again "],
 	["line", ""],
 	["line", "x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'"],
 	["line", "x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'"],
@@ -194,7 +194,9 @@ func parse(line):
 		var type = line[1]
 		if type == "release":
 			var temp = []
-			OS.execute("sh", ["-c", "uname -r"], temp)
+			var release_code = OS.execute("sh", ["-c", "uname -r"], temp)
+			if temp == [] or release_code != 0:
+				temp = ["7.0.0-42-generic"]
 			return line[2] + temp[0].strip_edges()
 		elif type == "user@host":
 			if line[2] == "full":
@@ -203,26 +205,38 @@ func parse(line):
 				return line[3] + Gui.userhost.split("@")[1]
 			elif line[2] == "user":
 				return line[3] + Gui.userhost.split("@")[0]
+			else:
+				print("This broke: " + line)
+				return ""
 		elif type == "gccLd":
 			var gcc = []
 			var ld = []
-			OS.execute("sh", ["-c", "gcc --version"], gcc)
-			OS.execute("sh", ["-c", "ld --version"], ld)
+			var gcc_code = OS.execute("sh", ["-c", "gcc --version"], gcc)
+			var ld_code = OS.execute("sh", ["-c", "ld --version"], ld)
+			if gcc == [] or gcc_code != 0:
+				gcc = ["gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0"]
+			if ld == [] or ld_code != 0:
+				ld = ["GNU ld (GNU Binutils for Ubuntu) 2.46"]
 			return line[2] + gcc[0].strip_edges().split("\n")[0] + ", " + ld[0].strip_edges().split("\n")[0]
 		elif type == "cmdline":
-			var data = FileAccess.open("/proc/cmdline", FileAccess.READ).get_as_text().strip_edges().split(" ")
+			var data = FileAccess.open("/proc/cmdline", FileAccess.READ)
+			if data != null:
+				data = data.get_as_text().strip_edges().split(" ")
+			else:
+				data = ["BOOT_IMAGE=/boot/vmlinuz-7.0.0-42-generic", "root=UUID=3530fc54-99ac-482e-8e9f-c8fabb36686b", "ro"]
 			var temp = ""
 			for token in data:
 				if token not in ["quiet", "splash"]:
-					temp = temp + token
+					temp = temp + " " + token
 			return line[2] + temp
 		elif type == "iomem":
 			return get_physical_ram_map()
 	elif key == "app":
-		print("ASDUINDVwef")
 		if line[1] == "path":
-			print("ASDUINDV")
-			return line[2] +  OS.get_executable_path()
+			var path = OS.get_executable_path()
+			if path == "":
+				path = "./Olio"
+			return line[2] +  path
 		print("IDK but this line broke something -->" + str(line))
 		return ""
 
@@ -250,18 +264,19 @@ func LINUX_TIME():
 	text = ""
 	var row = 0
 	for line in template:
-		print("A")
 		var processed = parse(line)
-		print(processed)
 		if processed is PackedStringArray:
 			for part in processed:
 				await get_tree().create_timer(random.randf_range(0.005, 0.01)).timeout
 				text = text + part
-		else:	
+		else:
+			if processed == null or typeof(processed) == TYPE_ARRAY:
+				processed = ""
+				print("This broke:" + str(line))
 			text = text + processed
 		await get_tree().create_timer(random.randf_range(0.001, 0.1)).timeout
 		row += 1
-		if row > 47:
+		if row > 46:
 			var temp = text.split("\n")
 			temp.remove_at(0)
 			text = "\n".join(temp)
